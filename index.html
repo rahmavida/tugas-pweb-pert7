@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruang Belajar Bootstrap | Konten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root {
+    --ivory: #f8f6e6;
+    --sage: #cfd78c;
+    --plum: #6b0f42;
+    --plum-dark: #45092a;
+    --ink: #2b1a24;
+    --line: #d9d6b4;
+    --bs-body-font-family: "DM Sans", system-ui, sans-serif;
+    --bs-body-bg: var(--ivory);
+    --bs-body-color: var(--ink);
+    --bs-link-color: var(--plum);
+    --bs-link-hover-color: var(--plum-dark);
+}
+
+h1, h2, h3, h4, h5, .serif {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
+
+  /* tombol */
+.btn-plum {
+    --bs-btn-bg: var(--plum); --bs-btn-color: #fff; --bs-btn-border-color: var(--plum);
+    --bs-btn-hover-bg: var(--plum-dark); --bs-btn-hover-color: #fff; --bs-btn-hover-border-color: var(--plum-dark);
+    --bs-btn-active-bg: var(--plum-dark); --bs-btn-active-color: #fff;
+    --bs-btn-disabled-bg: #a97a95; --bs-btn-disabled-border-color: #a97a95;
+    --bs-btn-border-radius: .5rem; font-weight: 500;
+}
+
+.btn-sage {
+    --bs-btn-bg: var(--sage); --bs-btn-color: var(--plum-dark); --bs-btn-border-color: var(--sage);
+    --bs-btn-hover-bg: #c0c978; --bs-btn-hover-color: var(--plum-dark); --bs-btn-hover-border-color: #c0c978;
+    --bs-btn-border-radius: .5rem; font-weight: 500;
+}
+
+.btn-outline-plum {
+    --bs-btn-color: var(--plum); --bs-btn-border-color: var(--plum);
+    --bs-btn-hover-bg: var(--plum); --bs-btn-hover-color: #fff; --bs-btn-hover-border-color: var(--plum);
+    --bs-btn-border-radius: .5rem; font-weight: 500;
+}
+
+  /* header + footer */
+.site-header { background: var(--plum); color: #fff; }
+.site-header .nav-link { color: rgba(255,255,255,.85); padding: .4rem .9rem; border-radius: .4rem; }
+.site-header .nav-link:hover, .site-header .nav-link.active { color: #fff; background: rgba(255,255,255,.12); }
+.site-footer { background: var(--plum-dark); color: #fff; }
+.site-footer a { color: var(--sage); }
+
+  /* halaman konten */
+.banner { background: #fff; border-bottom: 1px solid var(--line); border-left: 6px solid var(--sage); }
+.menu-btn {
+    text-align: left; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: .75rem;
+    padding: .9rem 1rem; color: var(--ink); transition: background .15s, border-color .15s;
+}
+.menu-btn:hover { border-color: var(--plum); }
+.menu-btn.active { background: var(--plum); border-color: var(--plum); color: #fff; }
+.menu-btn small { display: block; opacity: .75; }
+.card { border: 1px solid var(--line); border-radius: .75rem; }
+.card-plum { background: var(--plum); border-color: var(--plum); color: #fff; }
+.card-sage { background: var(--sage); border-color: var(--sage); color: var(--plum-dark); }
+.accordion-button:not(.collapsed) { background: #efedc9; color: var(--plum-dark); }
+.accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(107,15,66,.2); }
+.form-check-input:checked { background-color: var(--plum); border-color: var(--plum); }
+
+  /* halaman masuk / daftar */
+.side-panel {
+    background: var(--plum); color: #fff; min-height: 80vh;
+    background-image: radial-gradient(circle at 100% 100%, rgba(207,215,140,.2) 0 220px, transparent 221px);
+}
+.side-panel a { color: var(--sage); }
+.form-card {
+    background: #fff; border: 1px solid var(--line); border-radius: .75rem; padding: 2.25rem;
+    width: 100%; box-shadow: 0 4px 12px rgba(43,26,36,.03);
+}
+.form-control { border: 1px solid var(--line); border-radius: .5rem; padding: .65rem .9rem; }
+.form-control:focus { border-color: var(--plum); box-shadow: 0 0 0 .2rem rgba(107,15,66,.15); }
+.input-group .form-control { border-radius: .5rem 0 0 .5rem; }
+.btn-eye {
+    border: 1px solid var(--line); border-left: 0; border-radius: 0 .5rem .5rem 0;
+    background: var(--ivory); color: var(--plum); font-weight: 500;
+}
+.btn-eye:hover { background: #ecebc3; }
+.strength-bar { height: 6px; border-radius: 50rem; background: #ece9ce; overflow: hidden; }
+.strength-fill { height: 100%; width: 0; transition: width .25s, background .25s; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header py-3">
+<div class="container d-flex flex-wrap align-items-center justify-content-between gap-2">
+    <div class="d-flex flex-wrap align-items-center gap-4">
+    <h2 class="h4 mb-0">Ruang Belajar Bootstrap</h2>
+    <nav class="nav">
+        <a class="nav-link active" id="navHome" href="#" data-view="konten">Home</a>
+        <a class="nav-link" href="#" data-view="konten" data-scroll="#konten">About</a>
+        <a class="nav-link" href="#" data-scroll="#footer">Contact</a>
+    </nav>
+    </div>
+    <div class="d-flex gap-2">
+    <a href="#" class="btn btn-outline-light btn-sm" data-view="masuk">Masuk</a>
+    <a href="#" class="btn btn-sage btn-sm" data-view="daftar">Daftar</a>
+    </div>
+</div>
+</header>
+
+<!-- ============ KONTEN ============ -->
+<div id="view-konten">
+
+<section class="banner py-4">
+    <div class="container">
+    <h1 class="h2 mb-1">Menyusun halaman web dengan Bootstrap</h1>
+    <p class="mb-0 text-body-secondary">Pelajari layout, komponen, dan form melalui contoh yang bisa langsung dicoba.</p>
+    </div>
+</section>
+
+<div class="container my-4" id="konten">
+    <div class="row g-4">
+
+    <!-- Sidebar -->
+    <aside class="col-md-4 col-lg-3">
+        <div class="d-grid gap-2" role="tablist" aria-label="Menu konten">
+        <button class="menu-btn active" data-panel="p1" role="tab"><strong>Menu Item 1</strong><small>Ringkasan konten</small></button>
+        <button class="menu-btn" data-panel="p2" role="tab"><strong>Menu Item 2</strong><small>Mengenal komponen</small></button>
+        <button class="menu-btn" data-panel="p3" role="tab"><strong>Menu Item 3</strong><small>Catatan progres belajar</small></button>
+        </div>
+    </aside>
+
+    <!-- Konten -->
+    <main class="col-md-8 col-lg-9">
+
+        <section id="p1" class="panel">
+        <h3 class="mb-3">Konten</h3>
+        <div class="row g-3">
+            <div class="col-md-6">
+            <div class="card card-plum h-100">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">Feature 1</h5>
+                    <p class="card-text">Grid Bootstrap membagi halaman menjadi 12 kolom, sehingga layout tetap rapi di desktop dan tersusun ke bawah di ponsel.</p>
+                </div>
+                <div><button class="btn btn-sage mt-3" data-bs-toggle="modal" data-bs-target="#modalInfo">Learn More</button></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="card card-sage h-100">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">Feature 2</h5>
+                    <p class="card-text">Navbar, card, tombol, dan modal tersedia sebagai komponen siap pakai. Cukup panggil class-nya pada elemen HTML.</p>
+                </div>
+                <div><button class="btn btn-plum mt-3" id="btnStart">Get Started</button></div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="card mt-3 bg-white">
+            <div class="card-body p-4">
+            <h5 class="card-title">Main Article</h5>
+            <p class="card-text">Bootstrap membantu pengembang membuat tampilan web yang konsisten dengan cepat. Gaya cukup ditambahkan melalui class pada elemen HTML, tanpa menulis CSS dari awal.</p>
+            <div class="collapse" id="moreText">
+                <p class="card-text">Selain CSS, Bootstrap menyediakan komponen JavaScript seperti modal, tab, collapse, dan toast. Semuanya aktif melalui atribut <code>data-bs-*</code>.</p>
+            </div>
+            <button class="btn btn-outline-plum btn-sm mt-2" id="btnMore" data-bs-toggle="collapse" data-bs-target="#moreText" aria-expanded="false" aria-controls="moreText">Baca selengkapnya</button>
+            </div>
+        </div>
+        </section>
+
+        <section id="p2" class="panel d-none">
+        <h3 class="mb-3">Komponen</h3>
+        <div class="accordion" id="acc">
+            <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">Navbar</button></h2>
+            <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#acc"><div class="accordion-body">Bilah navigasi di bagian atas halaman, tempat menu utama dan tombol akun.</div></div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">Card</button></h2>
+            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#acc"><div class="accordion-body">Wadah untuk mengelompokkan judul, teks, dan tombol, seperti kartu Feature pada halaman ini.</div></div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">Modal</button></h2>
+            <div id="a3" class="accordion-collapse collapse" data-bs-parent="#acc"><div class="accordion-body">Jendela dialog di atas halaman. Coba tombol Learn More pada menu Konten.</div></div>
+            </div>
+        </div>
+        </section>
+
+        <section id="p3" class="panel d-none">
+        <h3 class="mb-3">Progres belajar</h3>
+        <div class="card bg-white">
+            <div class="card-body p-4">
+            <p class="mb-2">Centang materi yang sudah dipelajari:</p>
+            <div class="progress mb-3" role="progressbar" aria-label="Progres belajar" style="height:12px;">
+                <div class="progress-bar" id="bar" style="width:0%; background: var(--plum);"></div>
+            </div>
+            <div class="form-check mb-2"><input class="form-check-input todo" type="checkbox" id="t1"><label class="form-check-label" for="t1">Layout dan grid</label></div>
+            <div class="form-check mb-2"><input class="form-check-input todo" type="checkbox" id="t2"><label class="form-check-label" for="t2">Card dan tombol</label></div>
+            <div class="form-check mb-2"><input class="form-check-input todo" type="checkbox" id="t3"><label class="form-check-label" for="t3">Form dan validasi</label></div>
+            <div class="form-check mb-2"><input class="form-check-input todo" type="checkbox" id="t4"><label class="form-check-label" for="t4">Modal dan toast</label></div>
+            <p class="mt-3 mb-0 fw-bold" id="barText" aria-live="polite">Belum ada materi yang dicentang.</p>
+            </div>
+        </div>
+        </section>
+
+    </main>
+    </div>
+</div>
+</div>
+
+<!-- ============ LOGIN ============ -->
+<div id="view-masuk" class="d-none">
+<div class="container-fluid p-0">
+    <div class="row g-0">
+
+    <div class="col-lg-5 d-none d-lg-flex flex-column justify-content-between side-panel p-5">
+        <div><a href="#" class="text-decoration-none fw-medium" data-view="konten">&larr; Kembali ke halaman konten</a></div>
+        <div class="my-auto py-5">
+        <h2 class="h4 mb-3 opacity-75">Ruang Belajar Bootstrap</h2>
+        <h1 class="display-5">Selamat datang kembali.</h1>
+        <p class="mt-3 text-white-50 fs-5">Masuk untuk melanjutkan materi dan melihat progres belajarmu.</p>
+        </div>
+        <div><small class="opacity-75">© 2026 Ruang Belajar Bootstrap • Latihan Bootstrap</small></div>
+    </div>
+
+    <div class="col-lg-7 d-flex align-items-center justify-content-center py-5">
+        <div class="form-card mx-3" style="max-width:460px;">
+        <a href="#" class="d-lg-none d-inline-block mb-3 text-decoration-none" data-view="konten">&larr; Kembali ke halaman konten</a>
+        <h2 class="h3 mb-1">Masuk ke akun</h2>
+        <p class="text-body-secondary mb-4">Masukkan email dan password yang telah terdaftar.</p>
+
+        <form novalidate id="loginForm">
+            <div class="mb-3">
+            <label class="form-label fw-bold" for="lEmail">Alamat email</label>
+            <input type="email" class="form-control" id="lEmail" placeholder="nama@domain.com" data-rule="email" autocomplete="email">
+            <div class="invalid-feedback">Format email belum benar, contoh: nama@domain.com</div>
+            </div>
+
+            <div class="mb-3">
+            <label class="form-label fw-bold" for="lPass">Password</label>
+            <div class="input-group has-validation">
+                <input type="password" class="form-control" id="lPass" placeholder="Masukkan password" data-rule="pass" autocomplete="current-password">
+                <button class="btn btn-eye" type="button" data-eye="lPass" aria-label="Tampilkan password">Lihat</button>
+                <div class="invalid-feedback">Password minimal 8 karakter.</div>
+            </div>
+            <small class="text-body-secondary d-block mt-1">Gunakan minimal 8 karakter untuk mencoba form.</small>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember">
+                <label class="form-check-label" for="remember">Ingat saya</label>
+            </div>
+            <a href="#" class="text-decoration-none small fw-bold">Lupa password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-plum w-100 py-2">Masuk &rarr;</button>
+
+            <p class="text-center mt-4 mb-0 small">
+            Belum punya akun? <a href="#" class="fw-bold text-decoration-none" data-view="daftar">Coba halaman daftar</a>
+            </p>
+        </form>
+        </div>
+    </div>
+
+    </div>
+</div>
+</div>
+
+<!-- ============ REGIST ============ -->
+<div id="view-daftar" class="d-none">
+<div class="container-fluid p-0">
+    <div class="row g-0">
+
+    <div class="col-lg-5 d-none d-lg-flex flex-column justify-content-between side-panel p-5">
+        <div><a href="#" class="text-decoration-none fw-medium" data-view="konten">&larr; Kembali ke halaman konten</a></div>
+        <div class="my-auto py-5">
+        <h2 class="h4 mb-3 opacity-75">Mulai dari sini</h2>
+        <h1 class="display-5">Ruang baru, ide yang baru.</h1>
+        <p class="mt-3 text-white-50 fs-5">Lengkapi form untuk mencoba pengalaman registrasi dan mulai menyusun halaman webmu.</p>
+        </div>
+        <div><small class="opacity-75">© 2026 Ruang Belajar Bootstrap • Latihan Bootstrap</small></div>
+    </div>
+
+    <div class="col-lg-7 d-flex align-items-center justify-content-center py-5">
+        <div class="form-card mx-3" style="max-width:520px;">
+        <a href="#" class="d-lg-none d-inline-block mb-3 text-decoration-none" data-view="konten">&larr; Kembali ke halaman konten</a>
+        <h2 class="h3 mb-1">Buat akun baru</h2>
+        <p class="text-body-secondary mb-4">Lengkapi data berikut untuk mulai belajar.</p>
+
+        <form novalidate id="registerForm">
+            <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label class="form-label fw-bold" for="fName">Nama depan</label>
+                <input type="text" class="form-control" id="fName" placeholder="Nama depan" data-rule="required">
+                <div class="invalid-feedback">Isi nama depan (min. 2 huruf).</div>
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label fw-bold" for="lName">Nama belakang <span class="fw-normal text-body-secondary">(opsional)</span></label>
+                <input type="text" class="form-control" id="lName" placeholder="Nama belakang">
+            </div>
+            </div>
+
+            <div class="mb-3">
+            <label class="form-label fw-bold" for="dName">Nama tampilan</label>
+            <input type="text" class="form-control" id="dName" placeholder="Nama yang ingin ditampilkan" data-rule="required">
+            <div class="invalid-feedback">Isi nama tampilan (min. 2 huruf).</div>
+            </div>
+
+            <div class="mb-3">
+            <label class="form-label fw-bold" for="rEmail">Alamat email</label>
+            <input type="email" class="form-control" id="rEmail" placeholder="nama@domain.com" data-rule="email" autocomplete="email">
+            <div class="invalid-feedback">Format email belum benar, contoh: nama@domain.com</div>
+            </div>
+
+            <div class="row g-3 mb-2">
+            <div class="col-sm-6">
+                <label class="form-label fw-bold" for="rPass">Password</label>
+                <div class="input-group has-validation">
+                <input type="password" class="form-control" id="rPass" placeholder="Minimal 8 karakter" data-rule="pass" autocomplete="new-password">
+                <button class="btn btn-eye" type="button" data-eye="rPass" aria-label="Tampilkan password">Lihat</button>
+                <div class="invalid-feedback">Min. 8 karakter.</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label fw-bold" for="rPass2">Konfirmasi password</label>
+                <div class="input-group has-validation">
+                <input type="password" class="form-control" id="rPass2" placeholder="Ulangi password" data-rule="match" autocomplete="new-password">
+                <button class="btn btn-eye" type="button" data-eye="rPass2" aria-label="Tampilkan konfirmasi password">Lihat</button>
+                <div class="invalid-feedback">Password belum sama.</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="mb-3">
+            <div class="strength-bar mb-1"><div class="strength-fill" id="sFill"></div></div>
+            <small id="sText" class="text-body-secondary small" aria-live="polite">Kekuatan password: belum diisi</small>
+            </div>
+
+            <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="showPassToggle">
+            <label class="form-check-label small" for="showPassToggle">Tampilkan password di kedua kolom</label>
+            </div>
+
+            <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="agree">
+            <label class="form-check-label small" for="agree">Saya menyetujui ketentuan latihan. <a href="#" class="text-decoration-none">Lihat ketentuan</a></label>
+            </div>
+
+            <button type="submit" class="btn btn-plum w-100 py-2" id="btnRegister" disabled>Daftar &rarr;</button>
+
+            <p class="text-center mt-4 mb-0 small">
+            Sudah punya akun? <a href="#" class="fw-bold text-decoration-none" data-view="masuk">Coba halaman masuk</a>
+            </p>
+        </form>
+        </div>
+    </div>
+
+    </div>
+</div>
+</div>
+
+<!-- ============ FOOTER (dipakai semua tampilan) ============ -->
+<footer class="site-footer py-4" id="footer">
+<div class="container d-flex flex-wrap justify-content-between gap-2">
+    <div>
+    <h5 class="mb-1">Footer</h5>
+    <small>© 2026 Ruang Belajar Bootstrap. Dibuat untuk tugas pemrograman web.</small>
+    </div>
+    <div>
+    <a href="#" class="me-3">Privacy</a>
+    <a href="#" class="me-3">Terms</a>
+    <a href="#">Support</a>
+    </div>
+</div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Tentang grid 12 kolom</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+    </div>
+    <div class="modal-body">Pada layar lebar, <code>col-md-6</code> menampilkan dua kartu berdampingan. Pada ponsel, keduanya tersusun ke bawah secara otomatis.</div>
+    <div class="modal-footer"><button class="btn btn-plum" data-bs-dismiss="modal">Mengerti</button></div>
+    </div>
+</div>
+</div>
+
+<!-- Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="toast" class="toast text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+    <div class="d-flex"><div class="toast-body" id="toastBody"></div>
+    <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Tutup"></button></div>
+</div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const toast = msg => { $('#toastBody').textContent = msg; bootstrap.Toast.getOrCreateInstance($('#toast')).show(); };
+
+  /* ---------- Pindah tampilan (konten / masuk / daftar) ---------- */
+const titles = { konten: 'Konten', masuk: 'Masuk', daftar: 'Daftar' };
+function showView(name) {
+    Object.keys(titles).forEach(k => $('#view-' + k).classList.toggle('d-none', k !== name));
+    $('#navHome').classList.toggle('active', name === 'konten');
+    document.title = titles[name] + ' | Ruang Belajar Bootstrap';
+    window.scrollTo({ top: 0 });
+}
+$$('[data-view], [data-scroll]').forEach(el => el.addEventListener('click', e => {
+    e.preventDefault();
+    if (el.dataset.view) showView(el.dataset.view);
+    if (el.dataset.scroll) $(el.dataset.scroll).scrollIntoView({ behavior: 'smooth' });
+}));
+
+  /* ---------- Halaman konten ---------- */
+  // Sidebar: ganti panel
+$$('.menu-btn').forEach(btn => btn.addEventListener('click', () => {
+    $$('.menu-btn').forEach(b => b.classList.toggle('active', b === btn));
+    $$('.panel').forEach(p => p.classList.toggle('d-none', p.id !== btn.dataset.panel));
+}));
+
+  // Tombol Get Started dan Baca selengkapnya
+$('#btnStart').addEventListener('click', () => toast('Lanjutkan ke Menu Item 2 untuk mempelajari komponen.'));
+$('#moreText').addEventListener('shown.bs.collapse', () => $('#btnMore').textContent = 'Tutup');
+$('#moreText').addEventListener('hidden.bs.collapse', () => $('#btnMore').textContent = 'Baca selengkapnya');
+
+  // Progres belajar
+const todos = $$('.todo');
+todos.forEach(t => t.addEventListener('change', () => {
+    const n = todos.filter(x => x.checked).length;
+    $('#bar').style.width = (n / todos.length * 100) + '%';
+    $('#barText').textContent = n === 0 ? 'Belum ada materi yang dicentang.' : n === todos.length ? 'Semua materi telah selesai.' : `${n} dari ${todos.length} materi selesai.`;
+    if (n === todos.length) toast('Semua materi telah selesai dipelajari.');
+}));
+
+  /* ---------- Form ---------- */
+  // Tombol Lihat / Sembunyi password
+$$('[data-eye]').forEach(btn => btn.addEventListener('click', () => {
+    const input = document.getElementById(btn.dataset.eye);
+    const isPass = input.type === 'password';
+    input.type = isPass ? 'text' : 'password';
+    btn.textContent = isPass ? 'Sembunyi' : 'Lihat';
+    btn.setAttribute('aria-label', (isPass ? 'Sembunyikan' : 'Tampilkan') + ' password');
+}));
+
+  // Aturan validasi
+const rules = {
+    required: v => v.trim().length >= 2,
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v),
+    pass: v => v.length >= 8,
+    match: v => v.length > 0 && v === $('#rPass').value
+};
+const mark = (el, ok) => { el.classList.toggle('is-valid', ok); el.classList.toggle('is-invalid', !ok); };
+const check = el => {
+    if (!el.value) { el.classList.remove('is-valid', 'is-invalid'); return; }
+    mark(el, rules[el.dataset.rule](el.value));
+};
+
+  // Validasi semua field sebuah form
+function validateAll(form) {
+    let first = null;
+    $$('[data-rule]', form).forEach(f => {
+    const ok = rules[f.dataset.rule](f.value);
+    mark(f, ok);
+    if (!ok && !first) first = f;
+    });
+    return first;
+}
+
+  /* ---------- Form masuk ---------- */
+const loginForm = $('#loginForm');
+$$('[data-rule]', loginForm).forEach(inp => inp.addEventListener('input', () => check(inp)));
+loginForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = validateAll(loginForm);
+    if (bad) return bad.focus();
+    toast('Berhasil masuk! Mengalihkan ke halaman konten...');
+    setTimeout(() => { loginForm.reset(); $$('.is-valid, .is-invalid', loginForm).forEach(el => el.classList.remove('is-valid', 'is-invalid')); showView('konten'); }, 1200);
+});
+
+  /* ---------- Form daftar ---------- */
+const regForm = $('#registerForm');
+
+  // Tampilkan password di kedua kolom
+$('#showPassToggle').addEventListener('change', e => {
+    ['rPass', 'rPass2'].forEach(id => {
+    $('#' + id).type = e.target.checked ? 'text' : 'password';
+    $(`[data-eye="${id}"]`).textContent = e.target.checked ? 'Sembunyi' : 'Lihat';
+    });
+});
+
+  // Kekuatan password
+const levels = [
+    { t: 'terlalu pendek', c: '#c0392b', w: '20%' },
+    { t: 'lemah', c: '#e67e22', w: '40%' },
+    { t: 'cukup', c: '#f1c40f', w: '65%' },
+    { t: 'bagus', c: '#27ae60', w: '85%' },
+    { t: 'kuat', c: '#2ecc71', w: '100%' }
+];
+function calculateStrength(v) {
+    if (!v) return -1;
+    if (v.length < 8) return 0;
+    let score = 1;
+    if (/[A-Z]/.test(v) && /[a-z]/.test(v)) score++;
+    if (/\d/.test(v)) score++;
+    if (/[^A-Za-z0-9]/.test(v) || v.length >= 12) score++;
+    return Math.min(score, 4);
+}
+function updateMeter() {
+    const lv = calculateStrength($('#rPass').value), fill = $('#sFill');
+    if (lv < 0) { fill.style.width = '0'; $('#sText').textContent = 'Kekuatan password: belum diisi'; return; }
+    fill.style.width = levels[lv].w;
+    fill.style.background = levels[lv].c;
+    $('#sText').textContent = 'Kekuatan password: ' + levels[lv].t;
+}
+
+  // Tombol Daftar aktif jika semua valid dan ketentuan dicentang
+function refreshButton() {
+    const allValid = $$('[data-rule]', regForm).every(f => f.value && rules[f.dataset.rule](f.value));
+    $('#btnRegister').disabled = !(allValid && $('#agree').checked);
+}
+
+  // Validasi real-time
+$$('[data-rule]', regForm).forEach(inp => inp.addEventListener('input', () => {
+    check(inp);
+    if (inp.id === 'rPass') { updateMeter(); if ($('#rPass2').value) check($('#rPass2')); }
+    refreshButton();
+}));
+$('#agree').addEventListener('change', refreshButton);
+
+  // Submit
+regForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = validateAll(regForm);
+    if (bad) return bad.focus();
+    toast('Akun ' + $('#dName').value.trim() + ' berhasil dibuat! Mengalihkan ke halaman masuk...');
+    setTimeout(() => {
+    regForm.reset();
+    $$('.is-valid, .is-invalid', regForm).forEach(el => el.classList.remove('is-valid', 'is-invalid'));
+    $$('[data-eye]', regForm).forEach(b => { b.textContent = 'Lihat'; });
+    updateMeter(); refreshButton();
+    showView('masuk');
+    }, 1200);
+});
+</script>
+</body>
+</html>
